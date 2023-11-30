@@ -66,23 +66,3 @@ You deployed:
 ![image](img/terraform_deployment.png)
 
 You are ready to [start with LAB1](../lab1.md)
-
-# Destroy the hands.on infrastructure
-```bash
-terraform destroy
-```
-There could be a conflict destroying everything with our Tags. In this case destroy again via terraform.
-```bash
-#╷
-#│ Error: error deleting Tag "<tagID>/PII": 409 Conflict
-#│ 
-#│ 
-#╵
-#╷
-#│ Error: error deleting Tag "<tagID>/Public": 409 Conflict
-#│ 
-#│ 
-#╵
-# destroy again
-terraform destroy
-``` 
