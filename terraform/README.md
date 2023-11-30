@@ -26,57 +26,7 @@ We will deploy with terraform:
 ![image](img/terraform_deployment.png)
 
 # Pre-requisites
-- User account on [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree)
-- Local install of [Terraform](https://www.terraform.io) (details below)
-- Local install of [jq](https://jqlang.github.io/jq/download) (details below)
-- Local install Confluent CLI, [install the cli](https://docs.confluent.io/confluent-cli/current/install.html) 
-- Create API Key in Confluent Cloud via CLI:
-    ```bash
-    confluent login
-    confluent api-key create --resource cloud --description "API for terraform"
-    # It may take a couple of minutes for the API key to be ready.
-    # Save the API key and secret. The secret is not retrievable later.
-    #+------------+------------------------------------------------------------------+
-    #| API Key    | <your generated key>                                             |
-    #| API Secret | <your generated secret>                                          |
-    #+------------+------------------------------------------------------------------+
-    ``````
- - Or visit the [Cloud API Key](https://confluent.cloud/settings/api-keys) page to create a Cloud API Key for your user, if you don't have any yet.
-
-# Installation (only need to do that once)
-
-## Install Terraform on MacOS
-```
-brew tap hashicorp/tap
-brew install hashicorp/tap/terraform
-brew update
-brew upgrade hashicorp/tap/terraform
-```
-If you are running Windows, please use this [guide](https://learn.microsoft.com/en-us/azure/developer/terraform/get-started-windows-bash?tabs=bash) <br>
-If you are running on Ubuntu (or WSL2 with Ubuntu), please use this [guide](https://computingforgeeks.com/how-to-install-terraform-on-ubuntu/)
-
-This tutorial was tested with Terraform v1.6.4 and confluent terraform provider 1.55.0 . To upgrade terraform on MacOS use
-```bash
-brew upgrade terraform
-```
-Or download new version from [website](https://www.terraform.io/downloads.html)
-
-## Install jq
-```
-brew install jq
-```
-If you are running Windows, download from [here](https://jqlang.github.io/jq/download/) <br>
-If you are running on Ubuntu (or WSL2 with Ubuntu), please follow the instructions [here](https://lindevs.com/install-jq-on-ubuntu)
-
-## Install Confluent Cli
-Please install the Confluent CLI, with these [instructions](https://docs.confluent.io/confluent-cli/current/install.html) 
-```
-brew install confluentinc/tap/cli
-```
-
-This tutorial was tested with Confluent CLI v3.41.0.
-
-# Provision services for the demo
+ - Visit the [Cloud API Key](https://confluent.cloud/settings/api-keys) page to create a Cloud API Key for your user, if you don't have any yet.
 
 ## Set environment variables
 - Add your API key to the Terraform variables by creating a tfvars file
@@ -94,11 +44,6 @@ cd ./terraform
 terraform init
 terraform plan
 terraform apply
-terraform output -json
-# for sensitive data
-terraform output -raw SRSecret
-terraform output -raw AppManagerSecret
-terraform output -raw ClientSecret
 ```
 
 Please check whether the terraform execution went without errors.
