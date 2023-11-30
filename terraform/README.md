@@ -60,9 +60,3 @@ To continue with the UI:
  - Access Confluent Cloud WebUI: https://confluent.cloud/login
  - Access your Environment: `flink_handson_terraform-XXXXXXXX`
  - Start with [lab1](../lab1.md)
-
-You deployed:
-
-![image](img/terraform_deployment.png)
-
-You are ready to [start with LAB1](../lab1.md)
